@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormGroupName } from '@angular/forms';
+import { appService } from '../app.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, Validators, FormGroupName } from '@angular/form
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService:appService) { }
 
   public loginForm: FormGroup
   public formLogin: FormGroup
@@ -74,6 +75,10 @@ export class LoginComponent implements OnInit {
       selectOptions: this.selectOptions,
       genderOptions: this.genderOptions,
     }
+    // this.loginService.addService(this.loginFormData)
+    // .subscribe((response:any)=>{
+    //   console.log("response")
+    // })
 
     console.log(this.loginFormData, "Template Driven")
 
